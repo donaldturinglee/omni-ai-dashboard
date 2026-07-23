@@ -1,9 +1,7 @@
 import {
   AlertRegular,
-  BotRegular,
   ChevronUpDownRegular,
-  DataTrendingRegular,
-  DocumentRegular,
+  DocumentBulletListRegular,
   HomeRegular,
   PeopleRegular,
   PersonRegular,
@@ -40,11 +38,9 @@ import {
 import { routePaths } from "@/router/routes";
 
 const navigationItems = [
-  { label: "Overview", icon: HomeRegular, isActive: true },
-  { label: "Assistants", icon: BotRegular, isActive: false },
-  { label: "Analytics", icon: DataTrendingRegular, isActive: false },
-  { label: "Documents", icon: DocumentRegular, isActive: false },
-  { label: "Team", icon: PeopleRegular, isActive: false },
+  { label: "Dashboard", icon: HomeRegular, isActive: true },
+  { label: "Users", icon: PeopleRegular, isActive: false },
+  { label: "Audit Logs", icon: DocumentBulletListRegular, isActive: false },
   { label: "Settings", icon: SettingsRegular, isActive: false },
 ];
 
