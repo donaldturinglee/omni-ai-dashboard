@@ -10,6 +10,25 @@ export const routes: RouteObject[] = [
 
       return { Component: Dashboard };
     },
+    children: [
+      {
+        index: true,
+        lazy: async () => {
+          const { DashboardContent } =
+            await import("@/features/dashboard/components/DashboardContent");
+
+          return { Component: DashboardContent };
+        },
+      },
+      {
+        path: routePaths.users,
+        lazy: async () => {
+          const { Users } = await import("@/features/users/Users");
+
+          return { Component: Users };
+        },
+      },
+    ],
   },
   {
     path: routePaths.signIn,
