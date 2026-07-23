@@ -4,6 +4,14 @@ import { routePaths } from "@/router/routes";
 
 export const routes: RouteObject[] = [
   {
+    path: routePaths.home,
+    lazy: async () => {
+      const { Dashboard } = await import("@/features/dashboard/Dashboard");
+
+      return { Component: Dashboard };
+    },
+  },
+  {
     path: routePaths.signIn,
     lazy: async () => {
       const { Signin } = await import("@/features/auth/Signin");

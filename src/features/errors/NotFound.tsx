@@ -5,20 +5,20 @@ import {
 } from "@gamecrafters/base-ui-icons";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import {
   Empty,
   EmptyContent,
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
-} from "@/components/ui/empty";
+} from "@/components/ui/Empty";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Kbd } from "@/components/ui/kbd";
+} from "@/components/ui/InputGroup";
+import { Kbd } from "@/components/ui/Kbd";
 import { routePaths } from "@/router/routes";
 
 export const NotFound = () => {
