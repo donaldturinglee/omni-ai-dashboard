@@ -1,15 +1,16 @@
+import { Outlet } from "react-router-dom";
+
 import { SidebarInset, SidebarProvider } from "@/components/ui/Sidebar";
-import { DashboardContent } from "@/features/dashboard/DashboardContent";
-import { DashboardFooter } from "@/features/dashboard/DashboardFooter";
-import { DashboardHeader } from "@/features/dashboard/DashboardHeader";
-import { DashboardSidebar } from "@/features/dashboard/DashboardSidebar";
+import { DashboardFooter } from "@/features/dashboard/components/DashboardFooter";
+import { DashboardHeader } from "@/features/dashboard/components/DashboardHeader";
+import { DashboardSidebar } from "@/features/dashboard/components/DashboardSidebar";
 
 export const Dashboard = () => (
   <SidebarProvider>
     <DashboardSidebar />
     <SidebarInset>
       <DashboardHeader />
-      <DashboardContent />
+      <Outlet />
       <DashboardFooter />
     </SidebarInset>
   </SidebarProvider>

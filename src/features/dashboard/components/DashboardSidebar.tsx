@@ -10,7 +10,7 @@ import {
   SparkleRegular,
   WalletRegular,
 } from "@gamecrafters/base-ui-icons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
 import {
@@ -37,11 +37,17 @@ import {
 } from "@/components/ui/Sidebar";
 import { routePaths } from "@/router/routes";
 
-const navigationItems = [
-  { label: "Dashboard", icon: HomeRegular, isActive: true },
-  { label: "Users", icon: PeopleRegular, isActive: false },
-  { label: "Audit Logs", icon: DocumentBulletListRegular, isActive: false },
-  { label: "Settings", icon: SettingsRegular, isActive: false },
+type NavigationItem = {
+  label: string;
+  icon: typeof HomeRegular;
+  path?: string;
+};
+
+const navigationItems: NavigationItem[] = [
+  { label: "Dashboard", icon: HomeRegular, path: routePaths.home },
+  { label: "Users", icon: PeopleRegular, path: routePaths.users },
+  { label: "Audit Logs", icon: DocumentBulletListRegular },
+  { label: "Settings", icon: SettingsRegular },
 ];
 
 const user = {
@@ -52,6 +58,7 @@ const user = {
 
 export const DashboardSidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <Sidebar collapsible="icon">
@@ -79,8 +86,9 @@ export const DashboardSidebar = () => {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
                   <SidebarMenuButton
-                    isActive={item.isActive}
+                    isActive={item.path === location.pathname}
                     tooltip={item.label}
+                    onClick={() => item.path && navigate(item.path)}
                   >
                     <item.icon aria-hidden="true" />
                     <span>{item.label}</span>
